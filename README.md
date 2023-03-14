@@ -1,6 +1,5 @@
 # flipperzero-doctors-sonic
-
-![THE DOCTOR]:(https://upload.wikimedia.org/wikipedia/en/8/80/Versions_of_the_Doctor.jpg)
+<img src="https://upload.wikimedia.org/wikipedia/en/8/80/Versions_of_the_Doctor.jpg" alt="Alt text" title="Optional title">
 
 The Doctors Sonic. A Doctor Who FlipperZero Repository
 
