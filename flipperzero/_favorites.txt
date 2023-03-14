@@ -1,0 +1,16 @@
+/any/apps/Music/Music_Player.fap
+/any/apps/Games/Tetris.fap
+/any/apps/Misc/text_viewer.fap
+/any/apps/Tools/RFID_Fuzzer.fap
+/any/apps/Tools/SubGHz_Playlist.fap
+/any/apps/Tools/SubGHz_Bruteforcer.fap
+/any/subghz/VERIZON.sub
+/any/subghz/VERIZOFF.sub
+/any/subghz/LIVING_ON.sub
+/any/apps/Tools/pocsag_pager.fap
+/any/apps/Tools/Picopass.fap
+/any/apps/Tools/nfc_magic.fap
+/any/apps/Tools/iBtn_Fuzzer.fap
+/any/apps/Tools/dtmf_dolphin.fap
+/any/apps/Tools/dap_link.fap
+/any/apps/Misc/totp.fap
