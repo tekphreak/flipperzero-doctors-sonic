@@ -1,0 +1,15 @@
+\
+REM Title: Windows Running Process List
+REM Description: Lists all running processes with PID, CPU, memory into Notepad
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING Get-Process | Sort-Object CPU -Descending | Format-Table Name,Id,CPU,WorkingSet,Path -AutoSize | Out-String -Width 200 | Out-File $env:TEMP\\processes.txt; Start-Process notepad $env:TEMP\\processes.txt
+ENTER
+DELAY 2000

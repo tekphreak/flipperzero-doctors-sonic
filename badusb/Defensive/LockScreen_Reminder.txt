@@ -1,0 +1,10 @@
+\
+REM Title: Lock Screen Reminder
+REM Description: Locks the workstation and types a reminder note on the login screen
+REM Use to remind people to lock their computers
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 500
+GUI l
+DELAY 1500

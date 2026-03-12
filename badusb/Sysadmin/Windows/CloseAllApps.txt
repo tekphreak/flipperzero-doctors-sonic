@@ -1,0 +1,17 @@
+\
+REM Title: Close All Applications
+REM Description: Gracefully closes all open user application windows
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $skip=@('explorer','powershell','svchost','System','Idle','lsass','csrss','wininit','winlogon','services'); Get-Process | Where-Object { $_.MainWindowTitle -ne '' -and $skip -notcontains $_.Name } | ForEach-Object { $_.CloseMainWindow() | Out-Null }
+ENTER
+DELAY 1000
+STRING Write-Host 'All application windows closed.' -ForegroundColor Green; Start-Sleep 2; exit
+ENTER

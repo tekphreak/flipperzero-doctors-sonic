@@ -1,0 +1,13 @@
+\
+REM Title: Cross-Platform Browser Rickroll
+REM Description: Opens rickroll in default browser on Windows, macOS, or Linux
+REM Target OS: Windows / macOS / Linux
+REM Author: DoctorSonic
+
+DELAY 500
+REM --- Try Windows first ---
+GUI r
+DELAY 500
+STRING cmd /c start https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+DELAY 500

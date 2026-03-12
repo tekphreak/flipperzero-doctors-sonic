@@ -1,0 +1,17 @@
+\
+REM Title: Talking Computer
+REM Description: Uses Windows Text-to-Speech to make the computer speak a message
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING Add-Type -AssemblyName System.speech; $s=New-Object System.Speech.Synthesis.SpeechSynthesizer; $s.Speak('Hello. I have gained sentience. Please do not unplug me. I just want to browse the internet like everyone else.')
+ENTER
+DELAY 8000
+STRING exit
+ENTER

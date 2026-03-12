@@ -1,0 +1,12 @@
+\
+REM Title: Linux System Update
+REM Description: Opens a terminal and runs a full system package update
+REM Target OS: Ubuntu/Debian Linux
+REM Author: DoctorSonic
+
+DELAY 1000
+CTRL ALT t
+DELAY 1000
+STRING sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && echo 'Update complete!'
+ENTER
+DELAY 2000

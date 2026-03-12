@@ -1,0 +1,12 @@
+\
+REM Title: Browser Rickroll
+REM Description: Opens the classic rickroll video in the default browser
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 500
+GUI r
+DELAY 500
+STRING https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+DELAY 500

@@ -1,0 +1,15 @@
+\
+REM Title: Windows Network Information Gatherer
+REM Description: Collects IP config, ARP table, routes, and DNS cache into Notepad
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING cmd /k
+ENTER
+DELAY 800
+STRING powershell -c "$o='--- IPCONFIG ---';$o+=ipconfig /all;$o+='--- ARP ---';$o+=arp -a;$o+='--- ROUTES ---';$o+=route print;$o+='--- DNS CACHE ---';$o+=ipconfig /displaydns;$o|Out-File $env:TEMP\\netinfo.txt;notepad $env:TEMP\\netinfo.txt"
+ENTER
+DELAY 2000

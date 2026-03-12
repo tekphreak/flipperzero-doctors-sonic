@@ -1,0 +1,17 @@
+\
+REM Title: CMD Window Spam
+REM Description: Rapidly opens many CMD windows to fill the screen
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING 1..30 | ForEach-Object { Start-Process cmd -ArgumentList '/k echo Window #$_ - Press Ctrl+C to close' }
+ENTER
+DELAY 1000
+STRING exit
+ENTER

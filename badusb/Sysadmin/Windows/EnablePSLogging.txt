@@ -1,0 +1,17 @@
+\
+REM Title: Enable PowerShell Script Block Logging
+REM Description: Enables comprehensive PowerShell logging for blue-team monitoring
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $p='HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging'; New-Item -Path $p -Force | Out-Null; Set-ItemProperty -Path $p -Name EnableScriptBlockLogging -Value 1; Set-ItemProperty -Path $p -Name EnableScriptBlockInvocationLogging -Value 1
+ENTER
+DELAY 500
+STRING Write-Host 'PowerShell Script Block Logging ENABLED.' -ForegroundColor Green; Write-Host 'Check Event Viewer > Application and Services > Microsoft > Windows > PowerShell > Operational' -ForegroundColor Cyan; Start-Sleep 4; exit
+ENTER

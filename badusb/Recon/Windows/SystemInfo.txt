@@ -1,0 +1,27 @@
+\
+REM Title: Windows System Information Gatherer
+REM Description: Collects OS, hardware, user, and env info into Notepad
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $o='--- SYSTEM INFO ---';$o+=[Environment]::NewLine
+ENTER
+DELAY 300
+STRING $o+=(Get-ComputerInfo|Select OSName,OSVersion,CsName,CsProcessors,CsPhysicallyInstalledMemory|Format-List|Out-String)
+ENTER
+DELAY 600
+STRING $o+='--- USER ---';$o+=[Environment]::NewLine;$o+=(whoami /all|Out-String)
+ENTER
+DELAY 600
+STRING $o+='--- ENVIRONMENT ---';$o+=[Environment]::NewLine;$o+=([Environment]::GetEnvironmentVariables()|Out-String)
+ENTER
+DELAY 600
+STRING $o|Out-File $env:TEMP\\sysinfo.txt;Start-Process notepad $env:TEMP\\sysinfo.txt
+ENTER
+DELAY 1500

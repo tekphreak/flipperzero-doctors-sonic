@@ -1,0 +1,12 @@
+\
+REM Title: Linux Network Information Gatherer
+REM Description: Collects IP config, routes, connections, and DNS info
+REM Target OS: Linux
+REM Author: DoctorSonic
+
+DELAY 1000
+CTRL ALT t
+DELAY 1000
+STRING (echo '--- IP ADDR ---' && ip addr; echo '--- ROUTES ---' && ip route; echo '--- CONNECTIONS ---' && ss -tuln; echo '--- DNS ---' && cat /etc/resolv.conf; echo '--- ARP ---' && arp -n) > /tmp/netinfo.txt && xdg-open /tmp/netinfo.txt &
+ENTER
+DELAY 2000

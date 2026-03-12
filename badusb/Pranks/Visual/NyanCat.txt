@@ -1,0 +1,17 @@
+\
+REM Title: Nyan Cat in PowerShell
+REM Description: Displays a colourful Nyan Cat ASCII animation in PowerShell
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -Exec Bypass
+ENTER
+DELAY 1200
+STRING $host.UI.RawUI.BackgroundColor='Black';Clear-Host
+ENTER
+DELAY 300
+STRING $f=@('  +      +    ','  (\\_(\\  ','  ( ^.^)  ','  o_(")_(") ');$r=@('Red','Yellow','Green','Cyan','Blue','Magenta');$i=0;while($true){Clear-Host;$c=$r[$i%6];foreach($l in $f){Write-Host ('~'*($i%10)) -ForegroundColor $c -NoNewLine;Write-Host $l -ForegroundColor $c};$i++;Start-Sleep -Milliseconds 200}
+ENTER

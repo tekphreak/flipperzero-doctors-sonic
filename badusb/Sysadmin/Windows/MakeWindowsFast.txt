@@ -1,0 +1,29 @@
+\
+REM Title: Make Windows Performant
+REM Description: Disables visual effects, animations, and telemetry for max performance
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING # Disable visual effects
+ENTER
+STRING Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects' -Name VisualFXSetting -Value 2
+ENTER
+DELAY 300
+STRING # Disable animations
+ENTER
+STRING Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop\WindowMetrics' -Name MinAnimate -Value 0
+ENTER
+DELAY 300
+STRING # Disable telemetry
+ENTER
+STRING Set-Service -Name DiagTrack -StartupType Disabled; Stop-Service -Name DiagTrack -Force -ErrorAction SilentlyContinue
+ENTER
+DELAY 300
+STRING Write-Host 'Performance optimizations applied. Restart Explorer for full effect.' -ForegroundColor Green; Start-Sleep 3; exit
+ENTER

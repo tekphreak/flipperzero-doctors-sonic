@@ -1,0 +1,12 @@
+\
+REM Title: Linux System Information Gatherer
+REM Description: Collects OS, hardware, user, and process info
+REM Target OS: Linux (any desktop with a terminal)
+REM Author: DoctorSonic
+
+DELAY 1000
+CTRL ALT t
+DELAY 1000
+STRING uname -a && cat /etc/os-release && lscpu | head -20 && free -h && df -h && whoami && id && uptime > /tmp/sysinfo.txt && gedit /tmp/sysinfo.txt || xdg-open /tmp/sysinfo.txt &
+ENTER
+DELAY 2000

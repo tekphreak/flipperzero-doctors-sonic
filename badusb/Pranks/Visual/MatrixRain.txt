@@ -1,0 +1,17 @@
+\
+REM Title: Matrix Digital Rain
+REM Description: Runs a Matrix-style green rain animation in a full-screen PowerShell window
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -Exec Bypass
+ENTER
+DELAY 1200
+STRING $H=40;$W=120;$host.UI.RawUI.WindowSize=New-Object System.Management.Automation.Host.Size($W,$H);$host.UI.RawUI.BackgroundColor='Black';$host.UI.RawUI.ForegroundColor='Green';Clear-Host
+ENTER
+DELAY 500
+STRING while($true){$x=Get-Random -Max $W;$y=Get-Random -Max $H;[Console]::SetCursorPosition($x,$y);Write-Host ([char](Get-Random -Min 33 -Max 126)) -ForegroundColor (('Green','DarkGreen')[(Get-Random -Max 2)]) -NoNewLine;Start-Sleep -Milliseconds 20}
+ENTER

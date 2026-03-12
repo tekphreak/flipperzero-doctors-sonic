@@ -1,0 +1,18 @@
+\
+REM Title: Windows Installed Software List
+REM Description: Dumps all installed applications from registry into Notepad
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $r='HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*','HKLM:\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*','HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*'
+ENTER
+DELAY 400
+STRING Get-ItemProperty $r | Where-Object DisplayName | Select-Object DisplayName,DisplayVersion,Publisher,InstallDate | Sort-Object DisplayName | Format-Table -AutoSize | Out-String -Width 200 | Out-File $env:TEMP\\software.txt; notepad $env:TEMP\\software.txt
+ENTER
+DELAY 2000

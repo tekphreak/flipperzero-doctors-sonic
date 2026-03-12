@@ -1,0 +1,12 @@
+\
+REM Title: Linux MAC Address Spoofer
+REM Description: Changes the MAC address of the active network interface to a random value
+REM Target OS: Linux
+REM Author: DoctorSonic
+
+DELAY 1000
+CTRL ALT t
+DELAY 1000
+STRING IFACE=$(ip route | grep default | awk '{print $5}' | head -1); sudo ip link set dev $IFACE down; sudo ip link set dev $IFACE address $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g;s/.$//'); sudo ip link set dev $IFACE up; ip link show $IFACE | grep ether
+ENTER
+DELAY 2000

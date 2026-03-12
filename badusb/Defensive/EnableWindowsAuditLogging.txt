@@ -1,0 +1,26 @@
+\
+REM Title: Enable Windows Audit Logging
+REM Description: Enables key Windows Security audit policies for blue-team monitoring
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable
+ENTER
+DELAY 300
+STRING auditpol /set /category:"Account Logon" /success:enable /failure:enable
+ENTER
+DELAY 300
+STRING auditpol /set /category:"Object Access" /success:enable /failure:enable
+ENTER
+DELAY 300
+STRING auditpol /set /category:"Privilege Use" /success:enable /failure:enable
+ENTER
+DELAY 300
+STRING Write-Host 'Windows Audit Logging ENABLED.' -ForegroundColor Green; Write-Host 'Review logs in Event Viewer > Windows Logs > Security' -ForegroundColor Cyan; Start-Sleep 4; exit
+ENTER

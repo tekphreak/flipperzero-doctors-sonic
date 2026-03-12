@@ -1,0 +1,20 @@
+\
+REM Title: Max Volume Beep
+REM Description: Maxes system volume then plays a series of loud system beeps
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass
+ENTER
+DELAY 1200
+STRING $vol=New-Object -ComObject WScript.Shell; $vol.SendKeys([char]174*50); $vol.SendKeys([char]175*50)
+ENTER
+DELAY 500
+STRING [Console]::Beep(800,300);[Console]::Beep(600,300);[Console]::Beep(400,300);[Console]::Beep(800,600)
+ENTER
+DELAY 1000
+STRING exit
+ENTER

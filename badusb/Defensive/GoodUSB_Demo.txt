@@ -1,0 +1,28 @@
+\
+REM Title: Good USB Demo
+REM Description: Harmless demo payload that opens Notepad and types a friendly message
+REM Use this to explain what a USB attack looks like vs. what this safe device does
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING notepad
+ENTER
+DELAY 1000
+STRING === GOOD USB DEMO ===
+ENTER
+STRING This is a safe demonstration of a USB HID attack.
+ENTER
+STRING A malicious USB device could type anything here — silently and instantly.
+ENTER
+STRING This Flipper Zero is owned by: tekphreak
+ENTER
+STRING Date: 2026-03-12
+ENTER
+ENTER
+STRING Always lock your computer when stepping away!
+ENTER
+STRING Keyboard shortcut: GUI + L  (Windows) or CTRL + COMMAND + Q (macOS)
+ENTER

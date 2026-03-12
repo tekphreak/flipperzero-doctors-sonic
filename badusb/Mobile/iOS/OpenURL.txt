@@ -1,0 +1,10 @@
+\
+REM Title: iOS Open URL
+REM Description: Opens a URL via HID keyboard on iOS (requires browser focused)
+REM Target OS: iOS
+REM Author: DoctorSonic
+
+DELAY 1000
+STRING https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+DELAY 500

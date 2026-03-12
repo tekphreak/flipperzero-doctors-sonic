@@ -1,0 +1,20 @@
+\
+REM Title: Hacker Typer
+REM Description: Opens a CMD window and rapidly types fake hacking code for effect
+REM Target OS: Windows 10/11
+REM Author: DoctorSonic
+
+DELAY 1000
+GUI r
+DELAY 600
+STRING powershell -NoP -NonI -Exec Bypass
+ENTER
+DELAY 1200
+STRING $host.UI.RawUI.BackgroundColor='Black';$host.UI.RawUI.ForegroundColor='Green';Clear-Host;Write-Host 'INITIATING DEEP SCAN...' -ForegroundColor Red
+ENTER
+DELAY 500
+STRING $code='01001000 01000001 01000011 01001011 01000101 01000100','SCANNING TARGET SYSTEMS...','BYPASSING FIREWALL...','INJECTING PAYLOAD...','ROOT ACCESS GRANTED','EXTRACTING DATA...','UPLOAD COMPLETE','COVERING TRACKS...','CONNECTION TERMINATED'
+ENTER
+DELAY 500
+STRING foreach($l in $code){Write-Host $l -ForegroundColor Green;Start-Sleep -Milliseconds (Get-Random -Min 400 -Max 1200)}; Write-Host 'ACCESS DENIED - TRACE DETECTED' -ForegroundColor Red -BackgroundColor DarkRed; Start-Sleep 2; exit
+ENTER

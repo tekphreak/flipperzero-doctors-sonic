@@ -1,0 +1,10 @@
+\
+REM Title: Android Open URL
+REM Description: Opens a URL in the Android browser via USB HID
+REM Target OS: Android (unlocked screen required)
+REM Author: DoctorSonic
+
+DELAY 1000
+STRING https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+DELAY 500
